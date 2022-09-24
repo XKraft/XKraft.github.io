@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Hello World | XKraft&#39;s blog</title>
+  <title>MissionPlanner无人机地面站1.3.75版本源码编译流畅——基于VS2019 | XKraft&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,38 +173,85 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2022-09-22T08:28:05.892Z" itemprop="datePublished">
-          2022-09-22
+      <time datetime="2022-09-24T06:15:32.000Z" itemprop="datePublished">
+          2022-09-24
       </time>
     
 </span>
-                <h1>Hello World</h1>
+                <h1>MissionPlanner无人机地面站1.3.75版本源码编译流畅——基于VS2019</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+      		<h1 id="地面站源码编译流程——基于1-3-75版本"><a href="#地面站源码编译流程——基于1-3-75版本" class="headerlink" title="地面站源码编译流程——基于1.3.75版本"></a>地面站源码编译流程——基于1.3.75版本</h1><h4 id="一、环境-软件工具-资源"><a href="#一、环境-软件工具-资源" class="headerlink" title="一、环境+软件工具+资源"></a>一、环境+软件工具+资源</h4><h6 id="1-环境"><a href="#1-环境" class="headerlink" title="1.环境"></a>1.环境</h6><p>win10系统</p>
+<p>在“设置”里的“开发者选项”中启动“开发人员模式”</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913173531958.png" alt="image-20220913173531958"></p>
+<h6 id="2-安装visual-studio-2019（版本号不低于16-8）"><a href="#2-安装visual-studio-2019（版本号不低于16-8）" class="headerlink" title="2.安装visual studio 2019（版本号不低于16.8）"></a>2.安装visual studio 2019（版本号不低于16.8）</h6><p>在安装时需要勾选：</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913173207743.png" alt="image-20220913173207743"></p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913173234026.png" alt="image-20220913173234026"></p>
+<p>如果已经安装过了，可使用Visual Studio Installer(在安装Visual Studio时会自带该软件)修改</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913173424994.png" alt="image-20220913173424994"></p>
+<h6 id="3-需要下载的资源"><a href="#3-需要下载的资源" class="headerlink" title="3.需要下载的资源"></a>3.需要下载的资源</h6><p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913173904937.png" alt="image-20220913173904937"></p>
+<p>MissionPlanner-1.3.75是1.3.75版本的地面站软件应用</p>
+<p>MissionPlanner-MissionPlanner1.3.75是1.3.75版本的地面站源码</p>
+<p>mono的需要的依赖文件</p>
+<p>下载链接：<a target="_blank" rel="noopener" href="https://box.nju.edu.cn/d/9c1be16d568f40d0b1ab/">https://box.nju.edu.cn/d/9c1be16d568f40d0b1ab/</a></p>
+<p>下载后最好放到一个文件里并分别解压</p>
+<h4 id="二、地面站源码工程项目配置"><a href="#二、地面站源码工程项目配置" class="headerlink" title="二、地面站源码工程项目配置"></a>二、地面站源码工程项目配置</h4><h6 id="1-补全缺失文件"><a href="#1-补全缺失文件" class="headerlink" title="1.补全缺失文件"></a>1.补全缺失文件</h6><p>从github下载的地面站源码文件夹里，MissionPlanner-MissionPlanner1.3.75\ExtLibs\mono里是空的，因此需要把mono压缩包里的文件放进去，否则打开项目过程会报错找不到一些工程，最终效果如图所示：</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913174527960.png" alt="image-20220913174527960"></p>
+<h6 id="2-设置引用路径"><a href="#2-设置引用路径" class="headerlink" title="2.设置引用路径"></a>2.设置引用路径</h6><p>回到MissionPlanner-MissionPlanner1.3.75文件夹，找到MissionPlanner.sln文件，用visual studio打开。</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913174851351.png" alt="image-20220913174851351"></p>
+<p>会报错显示缺少一些ddl，这些依赖的ddl文件可以在地面站应用软件里找到，因此需要给该项目添加引用路径。操作如下：</p>
+<p>在“解决方案资源管理器”里找到“MissionPlanner”，右键选择“属性”</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913175409237.png" alt="image-20220913175409237"></p>
+<p>选择“引用路径”，然后填写“地面站软件应用文件夹所在地址”，再点击“添加文件夹”，保存设置即可。</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913175826913.png" alt="image-20220913175826913"></p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913175606578.png" alt="image-20220913175606578"></p>
+<h6 id="3-解决报错NETSDK1045-当前-NET-SDK-不支持将-NET-6-0-设置为目标"><a href="#3-解决报错NETSDK1045-当前-NET-SDK-不支持将-NET-6-0-设置为目标" class="headerlink" title="3.解决报错NETSDK1045 当前 .NET SDK 不支持将 .NET 6.0 设置为目标"></a>3.解决报错NETSDK1045 当前 .NET SDK 不支持将 .NET 6.0 设置为目标</h6><p>由于项目wasm中默认使用的neksdk版本为6.0，而vs2019似乎并不支持6.0版本，大多为5.0版本，因此需要修改一下wasm中使用的版本</p>
+<p>查看安装的neksdk版本的方法：</p>
+<p>打开命令行，输入dotnet –list-sdks</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180151983.png" alt="image-20220913180151983"></p>
+<p>解决办法如下：</p>
+<p>在“解决方案资源管理器”中找到“Exlibs”，在找到“wasm”，双击打开</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180339136.png" alt="image-20220913180339136"></p>
+<p>在开头处修改代码，将net6.0修改成自己电脑上的netsdk的版本，建议都安装5.0版本</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180508794.png" alt="image-20220913180508794"></p>
+<h4 id="三、编译并运行"><a href="#三、编译并运行" class="headerlink" title="三、编译并运行"></a>三、编译并运行</h4><p>在vs2019上方的“生成”中点击“生成解决方案”，发现没有报错</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180653611.png" alt="image-20220913180653611"></p>
+<p>点击“启动”，运行该项目，可以正常打开地面站，如图</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180821412.png" alt="image-20220913180821412"></p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180941832.png" alt="image-20220913180941832"></p>
+<p>如有警告，选择“继续调试 ”即可</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913180912828.png" alt="image-20220913180912828"></p>
+<h4 id="四、尝试修改地面站源码并运行"><a href="#四、尝试修改地面站源码并运行" class="headerlink" title="四、尝试修改地面站源码并运行"></a>四、尝试修改地面站源码并运行</h4><p>我们来实现修改地面站的启动加载界面</p>
+<p>vs2019提供可视化设计工具，地面站的启动加载界面存在Splash.cs文件中，在“解决方案资源管理器”中找到“MissionPlanner”，再在子文件夹中找到“Splash.cs”文件，右键，点击“查看设计器”，进入可视化界面</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913191003150.png" alt="image-20220913191003150"></p>
+<p>点击“工具箱”，里面罗列了许多可视化控件，选择图片展示控件“PictureBox”，拖一个到设计界面里（没有设置前是空白的）</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913191137824.png" alt="image-20220913191137824"></p>
+<p>点击该控件，右边会展示该空间的一些属性，如控件尺寸大小、是否显示、位置等，可以在里面设置成自己想要的</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913191400020.png" alt="image-20220913191400020"></p>
+<p>需要设置的属性如下，分别是</p>
+<p>设置控件尺寸大小为100像素*100像素</p>
+<p>设置控件的可见性级别为public</p>
+<p>设置控件展示的图片</p>
+<p>设置控件的尺寸模式为放缩，是否显示为是</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913191718035.png" alt="image-20220913191718035"></p>
+<p>设置展示图片步骤如下：</p>
+<p>点击“···”，选择“导入”，找到你想导入的图片，最好尺寸比列要和控件匹配，然后点击“确定”</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913192230173.png" alt="image-20220913192230173"></p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913192328101.png" alt="image-20220913192328101"></p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913192411028.png" alt="image-20220913192411028"></p>
+<p>重新生成解决方案并运行，最终效果如图</p>
+<p><img src="https://xkraft-blog-1211-1314103412.cos.ap-nanjing.myqcloud.com/img/image-20220913190220704.png" alt="image-20220913190220704"></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2022/09/24/MissionPlanner%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%9C%B0%E9%9D%A2%E7%AB%991-3-75%E7%89%88%E6%9C%AC%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E6%B5%81%E7%95%85%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EVS2019/" style="float: left;">
-        ← MissionPlanner无人机地面站1.3.75版本源码编译流畅——基于VS2019
-    </a>
     
+    <a class="pull-right" href="/2022/09/22/hello-world/">
+        Hello World →
+    </a>
     
 </nav>
 
